@@ -1,0 +1,42 @@
+---
+layout: default
+---
+
+<article class="entry project-entry">
+  <header class="entry-hero">
+    <div class="entry-hero__text reveal">
+      <a class="back-link" href="{{ '/#projects' | relative_url }}">← 回到作品</a>
+      <p class="eyebrow">Work</p>
+      <h1>{{ page.title }}</h1>
+      <p class="lead">{{ page.summary }}</p>
+      <div class="meta meta--large">
+        <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%Y.%m.%d" }}</time>
+        {% for tag in page.tags %}
+          <span>{{ tag }}</span>
+        {% endfor %}
+      </div>
+    </div>
+    {% if page.cover %}
+      <div class="entry-hero__image reveal delay-1">
+        <img src="{{ page.cover | relative_url }}" alt="{{ page.title }}">
+      </div>
+    {% endif %}
+  </header>
+
+  <div class="entry-content reveal">
+    {{ content }}
+  </div>
+
+  {% if page.gallery %}
+    <section class="entry-gallery" aria-label="{{ page.title }} 图库">
+      {% for item in page.gallery %}
+        <figure class="reveal">
+          <img src="{{ item.image | relative_url }}" alt="{{ item.caption | default: page.title }}">
+          {% if item.caption %}
+            <figcaption>{{ item.caption }}</figcaption>
+          {% endif %}
+        </figure>
+      {% endfor %}
+    </section>
+  {% endif %}
+</article>

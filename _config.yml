@@ -1,0 +1,31 @@
+title: "乐屋明的作品档案"
+description: "机器人、Grasshopper、软硬件实验和个人创作记录。"
+lang: zh-CN
+timezone: Asia/Shanghai
+future: true
+baseurl: ""
+url: "https://andrealu2012.github.io"
+
+collections:
+  projects:
+    output: true
+    permalink: /projects/:name/
+  notes:
+    output: true
+    permalink: /notes/:name/
+
+defaults:
+  - scope:
+      path: ""
+      type: "projects"
+    values:
+      layout: "project"
+  - scope:
+      path: ""
+      type: "notes"
+    values:
+      layout: "note"
+
+markdown: kramdown
+kramdown:
+  input: GFM
